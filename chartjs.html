@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementando o ChartJs</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body{display: flex;}
+
+        canvas{width: 50vw;}
+    </style>
+</head>
+<body>
+    <div>
+        <canvas id="chart_1"></canvas>
+    </div>
+    <div>
+        <canvas id="chart_2"></canvas>
+    </div>
+</body>
+</html>
+
+<script>
+    // Primeiro Gráfico
+
+    const labels = [
+      '12:00',
+      '13:00',
+      '14:00',
+      '15:00',
+      '16:00',
+      '17:00',
+    ];
+  
+    const data = {
+      labels: labels,
+      datasets: [{
+        label: 'Temperatura',
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgb(255, 99, 132)',
+        data: [30, 29, 28, 25, 22, 23],
+      }, {
+        label: 'Umidade',
+        backgroundColor: 'rgb(0, 183, 255)',
+        borderColor: 'rgb(0, 183, 255)',
+        data: [80, 82, 80, 85, 80, 83],
+      }]
+    };
+  
+    const config = {
+      type: 'line',
+      data: data,
+      options: {}
+    };
+
+    const chart_1 = new Chart(
+      document.getElementById('chart_1'),
+      config
+    );
+
+    // Segundo Gráfico
+
+    const labels_2 = [
+      'Janeiro',
+      'Fevereiro',
+      'Março',
+      'Abril',
+      'Maio',
+      'Junho',
+    ];
+  
+    const data_2 = {
+      labels: labels_2,
+      datasets: [{
+        label: 'Temperatura Média',
+        backgroundColor: 'rgb(255, 99, 132)',
+        data: [22, 24, 27, 23, 20, 18],
+      }, {
+        label: 'Umidade Média',
+        backgroundColor: 'rgb(0, 183, 255)',
+        data: [90, 89, 93, 87, 88, 82],
+      }]
+    };
+  
+    const config_2 = {
+      type: 'bar',
+      data: data_2,
+      options: {}
+    };
+
+    const chart_2 = new Chart(
+      document.getElementById('chart_2'),
+      config_2
+    );
+  </script>
